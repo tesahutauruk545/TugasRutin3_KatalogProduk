@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Katalog Produk Alat Olahraga Responsif">
+    <title>SportGear - Katalog Alat Olahraga</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Tailwind Config untuk Warna Kategori -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sepakbola': '#0ea5e9',
+                        'badminton': '#10b981',
+                        'fitness': '#f59e0b',
+                        'running': '#8b5cf6',
+                        'yoga': '#ec4899',
+                        'renang': '#06b6d4',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-40 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Brand -->
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <span class="text-3xl">🏆</span>
+                    <span class="font-bold text-xl tracking-tight text-gray-900">SportGear</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-blue-600 font-medium transition">Beranda</a>
+                    <a href="#katalog" class="text-gray-700 hover:text-blue-600 font-medium transition">Katalog</a>
+                    <a href="#footer" class="text-gray-700 hover:text-blue-600 font-medium transition">Kontak</a>
+                </div>
+
+                <!-- Cart & Mobile Menu Button -->
+                <div class="flex items-center gap-4">
+                    <button id="cartBtn" class="relative p-2 text-gray-700 hover:text-blue-600 transition" aria-label="Buka Keranjang">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        <span id="cartBadge" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center transform scale-0 transition-transform duration-200">0</span>
+                    </button>
+                    
+                    <button id="mobileMenuBtn" class="md:hidden p-2 text-gray-700 hover:text-blue-600 transition" aria-label="Toggle Menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Beranda</a>
+                <a href="#katalog" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Katalog</a>
+                <a href="#footer" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-12 sm:py-16 lg:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="clamp-heading font-extrabold mb-4">Lengkapi Kebutuhan Olahraga Anda</h1>
+            <p class="clamp-text max-w-2xl mx-auto text-blue-100 mb-8">Temukan peralatan olahraga berkualitas tinggi dari berbagai kategori dengan harga terbaik. Siap kirim ke seluruh Indonesia.</p>
+            <a href="#katalog" class="inline-block bg-white text-blue-700 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition transform hover:scale-105">Lihat Katalog</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="katalog" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+        <div class="text-center mb-10">
+            <h2 class="clamp-subheading font-bold text-gray-900 mb-2">Katalog Produk</h2>
+            <p class="clamp-text text-gray-600">Produk Pilihan dari Berbagai Kategori Olahraga</p>
+        </div>
+
+        <!-- Product Grid: 1 -> 2 -> 3 -> 4 columns -->
+        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+            <!-- Produk akan di-render oleh JavaScript -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-gray-900 text-gray-300 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-3xl"></span>
+                        <span class="font-bold text-xl text-white">SportGear</span>
+                    </div>
+                    <p class="clamp-text text-gray-400">Toko perlengkapan olahraga terpercaya dengan produk berkualitas dan harga kompetitif sejak 2020.</p>
+                </div>
+                <!-- Tautan -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Tautan Cepat</h3>
+                    <ul class="space-y-2 clamp-text">
+                        <li><a href="#" class="hover:text-white transition">Beranda</a></li>
+                        <li><a href="#katalog" class="hover:text-white transition">Katalog Produk</a></li>
+                        <li><a href="#" class="hover:text-white transition">Tentang Kami</a></li>
+                        <li><a href="#" class="hover:text-white transition">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+                <!-- Kontak -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Hubungi Kami</h3>
+                    <ul class="space-y-2 clamp-text">
+                        <li class="flex items-center gap-2">📧 info@sportgear.id</li>
+                        <li class="flex items-center gap-2">📞 +62 812-3456-7890</li>
+                        <li class="flex items-center gap-2">📍 Jakarta, Indonesia</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center clamp-text text-gray-500">
+                &copy; 2026 SportGear. Tugas Rutin 3 Pemrograman Web.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal (Bottom Sheet Mobile, Center Desktop) -->
+    <div id="cartModal" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black bg-opacity-50 transition-opacity" id="cartBackdrop"></div>
+        
+        <!-- Modal Content -->
+        <div class="absolute bottom-0 left-0 right-0 lg:inset-0 lg:flex lg:items-center lg:justify-center p-0 lg:p-4">
+            <div class="bg-white w-full lg:max-w-lg lg:rounded-2xl rounded-t-2xl shadow-2xl max-h-[90vh] flex flex-col relative animate-slide-up lg:animate-pop-in">
+                <!-- Header -->
+                <div class="flex justify-between items-center p-4 border-b border-gray-100 lg:rounded-t-2xl">
+                    <h3 class="text-lg font-bold text-gray-900">Keranjang Belanja</h3>
+                    <button id="closeCartBtn" class="p-2 text-gray-500 hover:text-red-500 transition" aria-label="Tutup Keranjang">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Body (Scrollable) -->
+                <div id="cartItems" class="flex-1 overflow-y-auto p-4 space-y-4">
+                    <!-- Item keranjang di-render di sini -->
+                </div>
+                
+                <!-- Empty State -->
+                <div id="cartEmpty" class="hidden flex-1 flex flex-col items-center justify-center p-8 text-center">
+                    <span class="text-5xl mb-4">🛒</span>
+                    <p class="text-gray-500 font-medium">Keranjang Anda masih kosong</p>
+                </div>
+
+                <!-- Footer (Sticky) -->
+                <div class="border-t border-gray-100 p-4 bg-gray-50 lg:rounded-b-2xl pb-[max(1rem,env(safe-area-inset-bottom))]">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="font-semibold text-gray-700">Total:</span>
+                        <span id="cartTotal" class="text-xl font-bold text-blue-600">Rp 0</span>
+                    </div>
+                    <button id="checkoutBtn" class="w-full bg-blue-600 text-white font-bold py-3 rounded-xl shadow-lg hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal (Center All Breakpoints) -->
+    <div id="successModal" class="fixed inset-0 z-[60] hidden flex items-center justify-center p-4" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 bg-black bg-opacity-60" id="successBackdrop"></div>
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full text-center relative z-10 animate-pop-in">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-4xl">✅</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Checkout Berhasil!</h3>
+            <p class="text-gray-600 mb-6 clamp-text">Terima kasih telah berbelanja. Pesanan Anda sedang diproses.</p>
+            <button id="closeSuccessBtn" class="w-full bg-green-500 text-white font-bold py-3 rounded-xl shadow-lg hover:bg-green-600 transition">
+                Selesai
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="fixed bottom-4 left-4 right-4 lg:left-auto lg:right-4 lg:max-w-xs z-[70] flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- JavaScript -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
